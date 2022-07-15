@@ -1,7 +1,6 @@
-import 'package:dapp/contract_linking.dart';
-import 'package:dapp/home_page.dart';
+import 'package:dapp/screens/election/election_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:dapp/screens/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,17 +12,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ContractLinking>(
-      create: ((context) => ContractLinking()),
-      child: MaterialApp(
-        title: 'Flutter Dapp',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+    return MaterialApp(
+      title: 'Flutter Dapp',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        textTheme: const TextTheme(  
+          displayMedium: TextStyle(
+            color: Colors.black
+          )
         ),
-        home: const HomePage(),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.amber)),
+        ),
       ),
+      home: const HomePage(),
     );
   }
 }
-
-
